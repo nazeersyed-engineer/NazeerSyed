@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-slate-200 font-sans antialiased;
+    background-color: #0f172a;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent/50 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply text-3xl sm:text-4xl font-bold text-white mb-2;
+  }
+
+  .section-subheading {
+    @apply text-accent font-mono text-sm tracking-widest uppercase mb-4;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-accent text-slate-900 font-semibold px-5 py-2.5 rounded-lg
+           hover:bg-accent-light transition-all duration-200 focus:outline-none focus:ring-2
+           focus:ring-accent focus:ring-offset-2 focus:ring-offset-surface;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-surface-border text-slate-300 font-medium px-5 py-2.5 rounded-lg
+           hover:border-accent hover:text-accent transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-surface;
+  }
+
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-xl p-6 
+           hover:border-accent/40 transition-all duration-300;
+  }
+
+  .tag {
+    @apply inline-flex items-center text-xs font-mono font-medium px-2.5 py-1 rounded
+           bg-accent/10 text-accent border border-accent/20;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
